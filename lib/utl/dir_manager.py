@@ -34,7 +34,7 @@ class DirectoryManager(object):
         return self.forkdrop_file
 
     def get_claim_report_path(self):
-        time_str = datetime.now().isoformat("-")
+        time_str = datetime.now().isoformat("-").replace(':', '_')
         filename = "claim-report-generated-%s.txt" % time_str
         return os.path.join(self.tmp_dir, filename)
 
@@ -45,7 +45,7 @@ class DirectoryManager(object):
         return os.path.join(self.tmp_dir, "tmplink.txt")
 
     def get_direct_query_report_path(self, coin_id):
-        time_str = datetime.now().isoformat("-")
+        time_str = datetime.now().isoformat("-").replace(':', '_')
         filename = "%s-direct-query-report-generated-%s.txt" % (coin_id,
                                                                 time_str)
         return os.path.join(self.tmp_dir, filename)
